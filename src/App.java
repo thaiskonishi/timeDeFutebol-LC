@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -42,5 +43,22 @@ public class App {
                         }));
             }
         };
+
+        times.stream()
+                .forEach(e -> System.out.println(e.getNomeTime()));
+        // times.stream()
+        // .filter((j) -> j.getPosicao() == Tipo.MEIA)
+        // .map((j) -> String.format("%s, %s", j.getNome(), t.getNomeTime()));
+        Stream<Object> teste = times.stream()
+                .map(t -> {
+                    return t.getTime().stream()
+                            .filter((j) -> j.getPosicao() == Tipo.MEIA)
+                            .map((j) -> System.out.printf(j.getNome()));
+                });
+
+        // teste
+        // .forEach(e -> System.out.println(e));
+        // .forEach(e -> System.out.println(e.getNomeTime()));
+        // String.format("%s, %s", j.getNome(), t.getNomeTime())).toString();
     }
 }

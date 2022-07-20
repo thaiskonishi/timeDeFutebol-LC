@@ -5,6 +5,11 @@ public class Time {
     private String nomeTime;
     private List<Jogador> time;
 
+    public Time(String nomeTime, List<Jogador> time) {
+        this.nomeTime = nomeTime;
+        this.time = time;
+    }
+
     public String getNomeTime() {
         return nomeTime;
     }
