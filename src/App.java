@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -46,8 +45,9 @@ public class App {
 
         times.stream()
                 .flatMap(e -> e.getTime().stream()
-                        .filter((j) -> j.getPosicao() == Tipo.MEIA))
-                .map(t -> t.getNome())
+                        .filter(j -> j.getPosicao() == Tipo.MEIA)
+                        .map(t -> t.getNome().concat(" ").concat(e.getNomeTime())))
+
                 .forEach(jogador -> System.out.println(jogador));
 
     }
